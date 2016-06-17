@@ -1,0 +1,227 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: content-box;
+}
+
+.roomSearch{
+  height: 100px;
+  overflow-y: scroll;
+}
+table {
+  border-collapse: collapse;
+}
+
+td,tr {
+  border-width: 0;
+}
+
+.inputFindPatch{
+  width: 90%;
+}
+
+/* -----------Map style----------- */
+.box{
+  float:right;
+  height:102px;
+  width: 102px;
+
+}
+.box_inner{
+  height:100px;
+  width: 100px;
+}
+.demo_box{
+  width: 50px;
+  height: 50px;
+}
+.demo_div{
+  float:left;
+  margin: 30px;
+}
+.clear{
+  clear: both;
+}
+.class{
+  border-width: 2px ;
+  background-color: #869ec5;
+  border-color: #869ec5;
+  border-style: solid;
+}
+.free{
+  border-width: 2px ;
+  background-color: #869ec5;
+  border-color: #869ec5;
+  border-style: solid;
+}
+.engaged{
+  border-width: 2px ;
+  background-color: #c57b12;
+  border-color: #c57b12;
+  border-style: solid;
+}
+.lecture{
+  border-width: 2px ;
+  background-color: #9ACD32;
+  border-color: #9ACD32;
+  border-style: solid;
+}
+.notAvailable{
+  border-width: 2px ;
+  background-color:#000000;
+  border-color: #000000;
+  border-style: solid;
+}
+.office{
+  border-width: 2px ;
+  background-color: green;
+  border-color: green;
+  border-style: solid;
+}
+.hallway{
+  border-width: 2px;
+  background-color: #8294a5;
+  border-color: #8294a5;
+  border-style: solid;
+}
+
+.borderNone{
+  border-style: solid;
+}
+.borderTop{
+  border-top-style:solid ;
+  border-top-color: #000000;
+}
+.borderLeft{
+  border-left-style: solid;
+  border-left-color: #000000;
+}
+.borderRight{
+  border-right-style: solid;
+  border-right-color: #000000;
+}
+.borderBottom{
+  border-bottom-style: solid;
+  border-bottom-color: #000000;
+}
+.borderLeftTop{
+  border-left-style: solid;
+  border-top-style:solid;
+  border-top-color: #000000;
+  border-left-color: #000000;
+}
+.borderLeftBottom{
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-left-color: #000000;
+  border-bottom-color: #000000;
+}
+.borderLeftRight{
+  border-left-style: solid;
+  border-right-style:solid;
+  border-left-color: #000000;
+  border-right-color: #000000;
+}
+.borderTopRight{
+  border-top-style:solid;
+  border-right-style:solid;
+  border-top-color: #000000;
+  border-right-color: #000000;
+
+}
+.borderTopLeft{
+  border-top-style:solid;
+  border-left-style:solid;
+  border-left-color: #000000;
+  border-top-color: #000000;
+}
+.borderTopBottom{
+  border-top-style:solid;
+  border-bottom-style: solid;
+  border-top-color: #000000;
+  border-bottom-color: #000000;
+}
+.borderRightBottom{
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-right-color: #000000;
+  border-bottom-color: #000000;
+}
+.borderLeftTopRight{
+  border-left-style: solid;
+  border-top-style:solid;
+  border-right-style:solid;
+  border-left-color: #000000;
+  border-top-color: #000000;
+  border-right-color: #000000;
+}
+.borderLeftTopBottom{
+  border-left-style: solid;
+  border-top-style:solid;
+  border-bottom-style:solid;
+  border-left-color: #000000;
+  border-top-color: #000000;
+  border-bottom-color: #000000;
+}
+.borderLeftRightBottom{
+  border-left-style: solid;
+  border-right-style:solid;
+  border-bottom-style:solid;
+  border-left-color: #000000;
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+}
+.borderTopRightBottom{
+  border-top-style:solid;
+  border-right-style:solid;
+  border-bottom-style: solid;
+  border-bottom-color: #000000;
+  border-top-color: #000000;
+  border-right-color: #000000;
+}
+.borderRightBottomLeft{
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style:solid;
+  border-left-color: #000000;
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+}
+.borderBottomLeftRight{
+  border-bottom-style: solid;
+  border-left-style:solid;
+  border-right-style: solid;
+  border-left-color: #000000;
+  border-bottom-color: #000000;
+  border-right-color: #000000;
+}
+.borderLeftTopRightBottom{
+  border-color: #000000;
+  border-style:solid;
+
+}
+
+/* Override bootstrap */
+
+body {
+  padding-top:70px;
+}
+
+.navbar-header {
+  float: none;
+}
+.navbar-toggle {
+  display: block;
+}
+.navbar-collapse.collapse {
+  display: none!important;
+}
+.navbar-nav {
+  float: none!important;
+}
+.navbar-nav>li {
+  float: none;
+}
+.navbar-collapse.collapse.in{
+  display:block !important;
+}
