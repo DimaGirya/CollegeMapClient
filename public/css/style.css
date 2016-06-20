@@ -3,7 +3,10 @@
   margin: 0;
   -webkit-box-sizing: content-box;
 }
-
+table {
+  border: 1px solid green;
+  margin: auto;
+}
 .roomSearch{
   height: 100px;
   overflow-y: scroll;
@@ -201,6 +204,36 @@ td,tr {
 
 }
 
+
+/* from button generator */
+.btnNav {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Georgia;
+  color: #000000;
+  font-size: 30px;
+  padding: 10px 20px 10px 20px;
+  border: solid #040505 3px;
+  text-decoration: none;
+}
+
+.btnNav:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
 /* Override bootstrap */
 
 body {
@@ -224,4 +257,13 @@ body {
 }
 .navbar-collapse.collapse.in{
   display:block !important;
+}
+.navbar-brand{
+  text-align: center;
+  font-size: 100%;
+}
+.navbar-default{
+  text-align: center;
+  font-size: 250%;
+  min-height: 60px;
 }
