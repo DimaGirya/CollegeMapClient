@@ -88,7 +88,7 @@ td,tr {
   border-style: solid;
 }
 
-.borderNone{
+.border{
   border-style: solid;
 }
 .borderTop{
@@ -107,19 +107,19 @@ td,tr {
   border-bottom-style: solid;
   border-bottom-color: #000000;
 }
-.borderLeftTop{
+.borderTopLeft{
   border-left-style: solid;
   border-top-style:solid;
   border-top-color: #000000;
   border-left-color: #000000;
 }
-.borderLeftBottom{
+.borderBottomLeft{
   border-left-style: solid;
   border-bottom-style: solid;
   border-left-color: #000000;
   border-bottom-color: #000000;
 }
-.borderLeftRight{
+.borderRightLeft{
   border-left-style: solid;
   border-right-style:solid;
   border-left-color: #000000;
@@ -150,7 +150,7 @@ td,tr {
   border-right-color: #000000;
   border-bottom-color: #000000;
 }
-.borderLeftTopRight{
+.borderTopRightLeft{
   border-left-style: solid;
   border-top-style:solid;
   border-right-style:solid;
@@ -158,7 +158,7 @@ td,tr {
   border-top-color: #000000;
   border-right-color: #000000;
 }
-.borderLeftTopBottom{
+.borderTopBottomLeft{
   border-left-style: solid;
   border-top-style:solid;
   border-bottom-style:solid;
@@ -166,7 +166,7 @@ td,tr {
   border-top-color: #000000;
   border-bottom-color: #000000;
 }
-.borderLeftRightBottom{
+.borderRightBottomLeft{
   border-left-style: solid;
   border-right-style:solid;
   border-bottom-style:solid;
@@ -190,18 +190,17 @@ td,tr {
   border-bottom-color: #000000;
   border-right-color: #000000;
 }
-.borderBottomLeftRight{
+.borderRightBottomLeft{
   border-bottom-style: solid;
-  border-left-style:solid;
+  border-left-style: solid;
   border-right-style: solid;
   border-left-color: #000000;
   border-bottom-color: #000000;
   border-right-color: #000000;
 }
-.borderLeftTopRightBottom{
+.borderTopRightBottomLeft{
   border-color: #000000;
-  border-style:solid;
-
+  border-style: solid;
 }
 
 
