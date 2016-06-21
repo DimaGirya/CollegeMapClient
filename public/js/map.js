@@ -4,8 +4,8 @@ app.controller("mapController",function ($scope,$http) {
     $scope.classes = null;
     $scope.rooms = null;
     $scope.readyToSendClassStatusUpdate = false;
-  //  $scope.serverStr = "http://localhost:3000";  // for work which localhost server
-    $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
+    $scope.serverStr = "http://localhost:3000";  // for work which localhost server
+  //  $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
     $scope.inputFrom = "";
     $scope.inputTo = "";
     $scope.message = "";
