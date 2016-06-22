@@ -10,15 +10,14 @@
 }  
 
 table {
-  border: 1px solid green;
+  border: 0.5px solid black;
   margin: auto;
+  border-collapse: collapse;
 }
+
 .roomSearch{
   height: 100px;
   overflow-y: scroll;
-}
-table {
-  border-collapse: collapse;
 }
 
 td,tr {
