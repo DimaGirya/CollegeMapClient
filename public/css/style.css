@@ -6,8 +6,8 @@
 
 @font-face {
   font-family: 'Lato';
-  src: url(../Lato-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
-}  
+  src: url('../Lato-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}
 
 table {
   border: 0.5px solid black;
@@ -40,8 +40,8 @@ td,tr {
   width: 100px;
 }
 .demo_box{
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
 }
 .demo_div{
   float:left;
@@ -58,38 +58,38 @@ td,tr {
 }
 .free{
   border-width: 2px ;
-  background-color: rgba(130, 255, 105, 0.49);
-  border-color: rgba(130, 255, 105, 0.49);
+  background-color: #c1ffb5;
+  border-color: #c1ffb5;
   border-style: solid;
 }
 .engaged{
   border-width: 2px ;
-  background-color: rgba(241, 255, 105, 0.27);
-  border-color: rgba(241, 255, 105, 0.27);
+  background-color: #fbffd6;
+  border-color:#fbffd6;
   border-style: solid;
 }
 .lecture{
   border-width: 2px ;
-  background-color: rgba(255, 207, 105, 0.49);
-  border-color: rgba(255, 207, 105, 0.49);
+  background-color: #ffe7b5;
+  border-color: #ffe7b5;
   border-style: solid;
 }
 .notAvailable{
   border-width: 2px ;
-  background-color: rgba(255, 105, 105, 0.49);
-  border-color: rgba(255, 105, 105, 0.49);
+  background-color:#ffb5b5;
+  border-color: #ffb5b5;
   border-style: solid;
 }
 .office{
   border-width: 2px ;
-  background-color: rgba(8, 37, 76, 0.35);
-  border-color: rgba(8, 37, 76, 0.35);
+  background-color:#a8b3c0;
+  border-color: #a8b3c0;
   border-style: solid;
 }
 .hallway{
   border-width: 2px;
-  background-color: rgba(105, 167, 255, 0.49);
-  border-color: rgba(105, 167, 255, 0.49);
+  background-color: #b5d4ff;
+  border-color: #b5d4ff;
   border-style: solid;
 }
 

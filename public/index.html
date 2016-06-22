@@ -106,8 +106,20 @@
             </div>
             <div class="modal-body">
                 <div class = "demo_div">
-                    Class:
-                    <div class="room demo_box"></div>
+                    Free:
+                    <div class="free demo_box"></div>
+                </div>
+                <div class = "demo_div">
+                    Engaged:
+                    <div class="engaged demo_box"></div>
+                </div>
+                <div class = "demo_div">
+                    Not available:
+                    <div class="notAvailable demo_box"></div>
+                </div>
+                <div class = "demo_div">
+                    Office:
+                    <div class="office demo_box"></div>
                 </div>
                 <div class = "demo_div">
                     Hallway:
@@ -153,7 +165,7 @@
     <tr ng-repeat="column in mapData" >
         <th ng-repeat="box in column">
             <div ng-class="['box']">
-                <div ng-class = "['box_inner',box.border, box.status]" >
+                <div ng-class = "['box_inner',box.border, box.status]" ng-click = "onClickRoom">
                     <!--{{ box.status}} -->
                 </div>
             </div>
