@@ -26,11 +26,21 @@
                 <form role="form">
                     <div class="form-group">
                         <label for="from">From:</label>
-                        <input type="text" class="form-control inputFindPatch" ng-model="inputFrom" id="from">
+                        <input type="text" class="form-control inputFindPatch"  ng-change="bindIdToRoomName(roomFrom)" ng-model="roomFrom.name" id="from">
+                        <div class = "roomSearch">
+                            <div ng-repeat=" room in rooms | filter:roomFrom.name" >
+                                <div>{{room.name}}</div>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="to">To:</label>
-                        <input type="text"  class="form-control inputFindPatch"  ng-model="inputTo" id="to">
+                        <label for="to">From:</label>
+                        <input type="text" class="form-control inputFindPatch"  ng-change="bindIdToRoomName(roomTo)" ng-model="roomTo.name" id="to">
+                        <div class = "roomSearch">
+                            <div ng-repeat=" room in rooms | filter:roomTo.name" >
+                                <div>{{room.name}}</div>
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" ng-click="sendFindPatchRequest()" data-dismiss="modal" class="btn btn-primary">Go!</button>
                 </form>
@@ -58,10 +68,10 @@
                     <label for="from">Room to report:</label>
                     <input type="text" ng-model="classToReport.name" ng-change="bindIdToClassName()" class="form-control inputFindPatch">
                     <div class = "roomSearch">
-                       <div ng-repeat=" class in classes | filter:classToReport.name" >
-                         <div>{{class.name}}</div>
-                      </div>
-                     </div>
+                        <div ng-repeat=" class in classes | filter:classToReport.name" >
+                            <div>{{class.name}}</div>
+                        </div>
+                    </div>
                     <label>
                         <input type="radio" ng-model="classToReport.status" value="free">
                         Free
@@ -84,7 +94,7 @@
                     <br>
                     <button type="button" class="btn btn-primary" ng-click="sendReportClassRequest()" data-dismiss="modal">Submit</button>
                 </form>
-        </div>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -141,7 +151,7 @@
     <div class = "navbar-header">
         <button type = "button" class = "navbar-toggle"
                 data-toggle = "collapse" data-target = "#example-navbar-collapse">
-                <image src = "images/nav.png"></image>
+            <image src = "images/nav.png"></image>
         </button>
 
         <a  href = "#"><img src = "images/logo.png"></a>
@@ -162,18 +172,21 @@
 
 <div  >
     <table>
-    <tr ng-repeat="column in mapData" >
-        <th ng-repeat="box in column">
-            <div ng-class="['box']">
-                <div ng-class = "['box_inner',box.border, box.status]">
-                    <!--{{ box.status}} -->
+        <tr ng-repeat="column in mapData" >
+            <th ng-repeat="box in column">
+                <div ng-class="['box']">
+                    <div ng-class = "['box_inner',box.border, box.status]">
+                        <!--{{ box.status}} -->
+                        Id:{{box.place_id}}
+                        <br>
+                        {{box.coord_x}},{{box.coord_y}}
+                    </div>
                 </div>
-            </div>
-        </th>
-    </tr>
+            </th>
+        </tr>
     </table>
 </div>
-    <script src = "js/lib/angular/angular.min.js" ></script>
-    <script src = "js/map.js"></script>
+<script src = "js/lib/angular/angular.min.js" ></script>
+<script src = "js/map.js"></script>
 </body>
 </html>

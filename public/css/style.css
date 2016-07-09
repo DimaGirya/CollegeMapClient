@@ -6,7 +6,7 @@
 
 @font-face {
   font-family: 'Lato';
-  src: url('../Lato-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+  src: url('../Lato-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3Â—5 */
 }
 
 table {
@@ -31,17 +31,17 @@ td,tr {
 /* -----------Map style----------- */
 .box{
   float:right;
-  height:102px;
-  width: 102px;
+  height:52px;
+  width: 52px;
 
 }
 .box_inner{
-  height:100px;
-  width: 100px;
+  height:50px;
+  width: 50px;
 }
 .demo_box{
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
 }
 .demo_div{
   float:left;
@@ -92,7 +92,12 @@ td,tr {
   border-color: #b5d4ff;
   border-style: solid;
 }
-
+.inPatch{
+  border-width: 2px;
+  background-color: #7b2aff;
+  border-color: #7b2aff;
+  border-style: solid;
+}
 .border{
   border-style: solid;
 }
