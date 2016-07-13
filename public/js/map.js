@@ -72,9 +72,12 @@ app.controller("mapController",function ($scope,$http) {
         });
     };
     $scope.sendReportClassRequest = function () {
+        console.log("sendReportClassRequest");
         if($scope.readyToSendClassStatusUpdate) {
             $http.get($scope.serverStr + "/setStatusRoom/" + $scope.classToReport.id + "/" + $scope.classToReport.status).success(function (data) {
                 ///room status update done
+                console.log("sendReportClassRequest done");
+                console.log(data);
                 $scope.message = data[0].message;
                 console.log($scope.message);
                 $scope.refreshMapData();
@@ -82,6 +85,7 @@ app.controller("mapController",function ($scope,$http) {
         }else{
             console.log("not ready to send");
         }
+
     };
 
     $scope.sendFindPatchRequest = function(){
@@ -90,7 +94,7 @@ app.controller("mapController",function ($scope,$http) {
             console.log($scope.roomFrom);
             return;
         }
-        $scope.refreshMapData();
+       // $scope.refreshMapData();
         $http.get( $scope.serverStr+"/getPath/"+ $scope.roomFrom.id+"/"+ $scope.roomTo.id).success(function (data) {
             console.log(data);
             var count = 0;
@@ -105,8 +109,6 @@ app.controller("mapController",function ($scope,$http) {
                 });
             });
             console.log(count);
-
-
         });
         $scope.roomTo = {
             status:"",
