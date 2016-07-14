@@ -11,6 +11,38 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-controller="mapController" >
+<div style ="position: absolute;">
+    <header>
+        <a  href = "#"><img src = "images/logo.png"></a>
+    </header>
+    <main>
+
+            <table>
+                <tr ng-repeat="column in mapData" >
+                    <th ng-repeat="box in column">
+                        <div ng-class="['box']">
+                            <div ng-class = "['box_inner',box.border, box.status]">
+                        <!--
+                                Id:{{box.place_id}}
+                                <br>
+                                {{box.coord_x}},{{box.coord_y}}
+                                -->
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+            </table>
+
+    </main>
+    <footer>
+        <button type="button" class="buttonNav" data-toggle="modal" data-target="#reportRoomDialog">Report</button>
+        <button type="button" class="buttonNav" data-toggle="modal" data-target="#findPatchDialog">Navigate</button>
+        <button type="button" class="buttonNav"  data-toggle="modal" data-target="#mapLegend">Legend</button>
+        <button type="button" class="buttonNav" ng-click="refreshMapData()" >Update</button>
+    </footer>
+</div>
+
+
 <div class="modal fade" id="findPatchDialog" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -142,35 +174,7 @@
 </div>
 
 
-<div>
-    <header>
-        <a  href = "#"><img src = "images/logo.png"></a>
-    </header>
-        <main>
-            <div>
-                <table>
-                    <tr ng-repeat="column in mapData" >
-                        <th ng-repeat="box in column">
-                            <div ng-class="['box']">
-                                <div ng-class = "['box_inner',box.border, box.status]">
-                                    <!--{{ box.status}} -->
-                                    Id:{{box.place_id}}
-                                    <br>
-                                    {{box.coord_x}},{{box.coord_y}}
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
-                </table>
-            </div>
-        </main>
-    <footer>
-                    <button type="button" class="buttonNav" data-toggle="modal" data-target="#reportRoomDialog">Report</button>
-                    <button type="button" class="buttonNav" data-toggle="modal" data-target="#findPatchDialog">Navigate</button>
-                    <button type="button" class="buttonNav"  data-toggle="modal" data-target="#mapLegend">Legend</button>
-                    <button type="button" class="buttonNav" ng-click="refreshMapData()" >Update</button>
-    </footer>
-    </div>
+
 <script src = "js/lib/angular/angular.min.js" ></script>
 <script src = "js/map.js"></script>
 </body>

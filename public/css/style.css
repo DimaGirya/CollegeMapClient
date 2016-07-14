@@ -1,17 +1,20 @@
+@import url(http://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
 * {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: content-box;
 }
 
-@font-face {
-  font-family: 'Lato';
-  src: url('../Lato-Regular.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 35 */
+
+body{
+  font-family: "Alef Hebrew";
+  overflow: auto;
 }
+
 
 table {
   border: 0.5px solid black;
-  margin: auto;
   border-collapse: collapse;
 }
 
@@ -31,17 +34,17 @@ td,tr {
 /* -----------Map style----------- */
 .box{
   float:right;
-  height:52px;
-  width: 52px;
+  height:152px;
+  width: 152px;
 
 }
 .box_inner{
-  height:50px;
-  width: 50px;
+  height:150px;
+  width: 150px;
 }
 .demo_box{
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 .demo_div{
   float:left;
@@ -220,24 +223,37 @@ td,tr {
 }
 
 .buttonNav{
-  font-size: 30px;
-  width:23%;
-  height:100px;
+  font-size: 50px;
+  width:24%;
+  height:200px;
   background-color: #ffffff;
   border-collapse: collapse;
 }
+
 main{
-  margin: 0 auto;
+  width: 100%;
   text-align: center;
+  display: block;
+  margin-top:100px;
+  height: 100%;
+  overflow: auto;
 }
+
 header{
-  margin-bottom: 10px;
+  height: 5%;
+  width: 100%;
+  background-color:yellowgreen;
   text-align: center;
+  display: block;
+  position:fixed;
+  top:0;
 }
 footer {
+  height: 10%;
+  width:100%;
+  background-color: white;
+  display: block;
   text-align: center;
   position:fixed;
-  bottom:10px;
-  height:100px;
-  width:100%;
+  bottom:0;
 }

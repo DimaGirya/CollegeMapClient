@@ -1,7 +1,7 @@
 var app = angular.module("map",[]);
 app.controller("mapController",function ($scope,$http) {
-    $scope.serverStr = "http://localhost:3000";  // for work which localhost server
-   //   $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
+    //$scope.serverStr = "http://localhost:3000";  // for work which localhost server
+      $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
     $scope.updateMapInProgress = false;
     $scope.mapData = null;
     $scope.classes = null;
