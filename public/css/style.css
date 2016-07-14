@@ -29,6 +29,7 @@ td,tr {
 
 .inputFindPatch{
   width: 90%;
+  height: 100px;
 }
 
 /* -----------Map style----------- */
@@ -229,7 +230,14 @@ td,tr {
   background-color: #ffffff;
   border-collapse: collapse;
 }
-
+.buttonPopup{
+  font-size: 50px;
+  color:#e6e7eb;
+  width:100%;
+  height:200px;
+  background-color: #030836;
+  border-collapse: collapse;
+}
 main{
   width: 100%;
   text-align: center;
@@ -256,4 +264,40 @@ footer {
   text-align: center;
   position:fixed;
   bottom:0;
+}
+.modal-dialog{
+  font-size:55px;
+}
+.modal-title{
+  font-size:45px;
+}
+.form-control{
+  height: 200px;
+  width: 97%;
+}
+.modal-content{
+  margin-top:300px ;
+}
+.modal-content h4{
+  text-align: center;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size:45px;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-size:45px;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-size:45px;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-size:45px;
+}
+input[type="text"] {
+   font-size:65px;
+ }
+input[type=radio] {
+  height:100px;
+  width:100px;
+  vertical-align: middle;
 }

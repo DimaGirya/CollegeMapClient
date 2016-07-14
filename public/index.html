@@ -2,6 +2,7 @@
 <html lang="en" ng-app="map">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>College map</title>
     <script src = "js/lib/jquery/jquery-2.2.4.min.js"></script>
     <script src = "js/lib/bootstrap-3.3.6-dist/bootstrap.min.js"></script>
@@ -9,6 +10,7 @@
     <!-- Optional theme  -->
     <link rel="stylesheet" href="css/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body ng-controller="mapController" >
 <div style ="position: absolute;">
@@ -45,7 +47,7 @@
 
 <div class="modal fade" id="findPatchDialog" role="dialog">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content ">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Find patch</h4>
@@ -53,29 +55,34 @@
             <div class="modal-body">
                 <form role="form">
                     <div class="form-group">
-                        <label for="from">From:</label>
-                        <input type="text" class="form-control inputFindPatch"  ng-change="bindIdToRoomName(roomFrom)" ng-model="roomFrom.name" id="from">
-                        <div class = "roomSearch">
-                            <div ng-repeat=" room in rooms | filter:roomFrom.name" >
-                                <div>{{room.name}}</div>
-                            </div>
+                        <input type="text" class="form-control inputFindPatch"  placeholder="From" ng-change="bindIdToRoomName(roomFrom)" ng-model="roomFrom.name" id="from">
+                        <!--
+                         <div class = "roomSearch">
+                             <div ng-repeat=" room in rooms | filter:roomFrom.name" >
+                                 <div>{{room.name}}</div>
+                             </div>
                         </div>
+                    -->
                     </div>
                     <div class="form-group">
-                        <label for="to">From:</label>
-                        <input type="text" class="form-control inputFindPatch"  ng-change="bindIdToRoomName(roomTo)" ng-model="roomTo.name" id="to">
+                        <input type="text" class="form-control inputFindPatch"  placeholder="To" ng-change="bindIdToRoomName(roomTo)" ng-model="roomTo.name" id="to">
+                     <!--
                         <div class = "roomSearch">
                             <div ng-repeat=" room in rooms | filter:roomTo.name" >
                                 <div>{{room.name}}</div>
                             </div>
                         </div>
+                         -->
                     </div>
-                    <button type="submit" ng-click="sendFindPatchRequest()" data-dismiss="modal" class="btn btn-primary">Go!</button>
+
+                    <button type="submit" ng-click="sendFindPatchRequest()" data-dismiss="modal" class="buttonPopup">Go!</button>
                 </form>
             </div>
+            <!--
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="buttonNav" data-dismiss="modal">Close</button>
             </div>
+            -->
         </div>
 
     </div>
@@ -83,9 +90,7 @@
 
 
 <div class="modal fade" id="reportRoomDialog" role="dialog">
-    <div class="modal-dialog">
-
-        <!-- Modal content-->
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -93,13 +98,14 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <label for="from">Room to report:</label>
-                    <input type="text" ng-model="classToReport.name" ng-change="bindIdToClassName()" class="form-control inputFindPatch">
+                    <input type="text" ng-model="classToReport.name" placeholder="Room to report" ng-change="bindIdToClassName()" class="form-control inputFindPatch">
+                    <!--
                     <div class = "roomSearch">
                         <div ng-repeat=" class in classes | filter:classToReport.name" >
                             <div>{{class.name}}</div>
                         </div>
                     </div>
+                    -->
                     <label>
                         <input type="radio" ng-model="classToReport.status" value="free">
                         Free
@@ -120,12 +126,14 @@
                         Room is not available
                     </label>
                     <br>
-                    <button type="button" class="btn btn-primary" ng-click="sendReportClassRequest()" data-dismiss="modal">Submit</button>
+                    <button type="button" class="buttonPopup" ng-click="sendReportClassRequest()" data-dismiss="modal">Submit</button>
                 </form>
             </div>
+            <!--
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
+            -->
         </div>
 
     </div>
