@@ -1,7 +1,8 @@
 var app = angular.module("map",[]);
 app.controller("mapController",function ($scope,$http) {
     $scope.serverStr = "http://localhost:3000";  // for work which localhost server
-    //  $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
+   //   $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
+    $scope.updateMapInProgress = false;
     $scope.mapData = null;
     $scope.classes = null;
     $scope.rooms = null;
@@ -25,6 +26,11 @@ app.controller("mapController",function ($scope,$http) {
         name:"",
         id :-1
     };
+
+    var updateMapToDisplayInProgress = false;
+    var updateMapInProgress  = false;
+    var waitCount = 0;
+
 
     $scope.bindIdToRoomName = function (roomObject) {
         var size = $scope.rooms.length;
@@ -52,9 +58,12 @@ app.controller("mapController",function ($scope,$http) {
     };
 
     $scope.refreshMapData = function () {
+        updateMapToDisplayInProgress = true;
+        updateMapInProgress  = true;
         $http.get( $scope.serverStr+"/getMapToDisplay").success(function (data) {
             console.log(data);
             $scope.mapData = data;
+            updateMapToDisplayInProgress = false;
         });
         $http.get( $scope.serverStr+"/getMap").success(function (data) {
             var size = data.length;
@@ -69,6 +78,7 @@ app.controller("mapController",function ($scope,$http) {
                     $scope.classes.push(data[i]);
                 }
             }
+            updateMapInProgress  = false;
         });
     };
     $scope.sendReportClassRequest = function () {
@@ -94,32 +104,50 @@ app.controller("mapController",function ($scope,$http) {
             console.log($scope.roomFrom);
             return;
         }
-       // $scope.refreshMapData();
-        $http.get( $scope.serverStr+"/getPath/"+ $scope.roomFrom.id+"/"+ $scope.roomTo.id).success(function (data) {
-            console.log(data);
-            var count = 0;
-            angular.forEach(data.path,function (hallway) {
-                angular.forEach($scope.mapData,function (row) {
-                    angular.forEach(row,function (cell) {
-                        count++;
-                        if(hallway == cell.place_id){
-                            cell.status = "inPatch";
-                        }
-                    });
-                });
-            });
-            console.log(count);
-        });
-        $scope.roomTo = {
-            status:"",
-            name:"",
-            id :-1
-        };
-        $scope.roomFrom = {
-            status:"",
-            name:"",
-            id :-1
-        };
+        $scope.refreshMapData();
+        findPatchRequest();
     };
+
+    function findPatchRequest() {
+        var intervalObject = setTimeout(function () {
+            if (!updateMapToDisplayInProgress || !updateMapInProgress) {
+                $http.get($scope.serverStr + "/getPath/" + $scope.roomFrom.id + "/" + $scope.roomTo.id).success(function (data) {
+                    console.log(data);
+                    var count = 0;
+                    angular.forEach(data.path, function (hallway) {
+                        angular.forEach($scope.mapData, function (row) {
+                            angular.forEach(row, function (cell) {
+                                count++;
+                                if (hallway == cell.place_id) {
+                                    cell.status = "inPatch";
+                                }
+                            });
+                        });
+                    });
+                    console.log(count);
+                    $scope.roomTo = {
+                        status: "",
+                        name: "",
+                        id: -1
+                    };
+                    $scope.roomFrom = {
+                        status: "",
+                        name: "",
+                        id: -1
+                    }
+                });
+            }
+            else{
+                console.log(waitCount);
+                waitCount++;
+                if(waitCount < 5) { //try 5 attempts
+                    findPatchRequest();
+                }
+                else{
+                    //todo notify user any connection error
+                }
+            }
+        },500);
+    }
     $scope.refreshMapData();
 });
