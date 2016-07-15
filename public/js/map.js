@@ -3,6 +3,8 @@ app.controller("mapController",function ($scope,$http) {
     $scope.serverStr = "http://localhost:3000";  // for work which localhost server
     //  $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
     $scope.updateMapInProgress = false;
+    $scope.userName = "Dima Girya"; // hardcodet
+    $scope.commentsInput = "";
     $scope.mapData = null;
     $scope.classes = null;
     $scope.rooms = null;
@@ -168,5 +170,12 @@ app.controller("mapController",function ($scope,$http) {
             $("#roomInformation").modal();
         });
 };
+    $scope.sendCommentsToServer = function () {
+        if($scope.commentsInput !== undefined || $scope.commentsInput !== ""){
+            $http.get($scope.serverStr + "/addComments/" + $scope.roomToShow.id + "/" + $scope.userName + "/"+$scope.commentsInput).success(function (data) {
+
+            });
+        }
+    };
     $scope.refreshMapData();
 });

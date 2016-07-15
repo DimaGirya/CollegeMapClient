@@ -198,7 +198,12 @@
                     Status:  {{roomToShow.status}}
                     <br>
                     Description:{{roomToShow.description}}
+
+                <div class="form-group">
+                    <input type="text" class="form-control inputFindPatch"  placeholder="Your comments" ng-model="commentsInput">
                 </div>
+                <button type="submit" ng-click="sendCommentsToServer()" data-dismiss="modal" class="buttonPopup">Add comments</button>
+            </div>
             </div>
 
         </div>
