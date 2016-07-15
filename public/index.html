@@ -10,15 +10,13 @@
     <!-- Optional theme  -->
     <link rel="stylesheet" href="css/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 <body ng-controller="mapController" >
 <div style ="position: absolute;">
     <header>
-        <a  href = "#"><img src = "images/logo.png"></a>
+        <a id="login" href="#">Log In</a><a id="logo" href="#"><img src="images/logo.png"></a>
     </header>
     <main>
-
             <table>
                 <tr ng-repeat="column in mapData" >
                     <th ng-repeat="box in column">
@@ -34,13 +32,12 @@
                     </th>
                 </tr>
             </table>
-
     </main>
     <footer>
-        <button type="button" class="buttonNav" data-toggle="modal" data-target="#reportRoomDialog">Report</button>
-        <button type="button" class="buttonNav" data-toggle="modal" data-target="#findPatchDialog">Navigate</button>
-        <button type="button" class="buttonNav"  data-toggle="modal" data-target="#mapLegend">Legend</button>
-        <button type="button" class="buttonNav" ng-click="refreshMapData()" >Update</button>
+        <div type="button" class="buttonNav" data-toggle="modal" data-target="#reportRoomDialog">Report</div>
+        <div type="button" class="buttonNav" data-toggle="modal" data-target="#findPatchDialog">Navigate</div>
+        <div type="button" class="buttonNav"  data-toggle="modal" data-target="#mapLegend">Legend</div>
+        <div type="button" class="buttonNav" ng-click="refreshMapData()" id="refresh">Update</div>
     </footer>
 </div>
 
@@ -209,8 +206,6 @@
         </div>
     </div>
 </div>
-
-
 <script src = "js/lib/angular/angular.min.js" ></script>
 <script src = "js/map.js"></script>
 </body>
