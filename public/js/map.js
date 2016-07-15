@@ -1,7 +1,7 @@
 var app = angular.module("map",[]);
 app.controller("mapController",function ($scope,$http) {
-    //$scope.serverStr = "http://localhost:3000";  // for work which localhost server
-      $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
+    $scope.serverStr = "http://localhost:3000";  // for work which localhost server
+    //  $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
     $scope.updateMapInProgress = false;
     $scope.mapData = null;
     $scope.classes = null;
@@ -81,6 +81,7 @@ app.controller("mapController",function ($scope,$http) {
             updateMapInProgress  = false;
         });
     };
+
     $scope.sendReportClassRequest = function () {
         console.log("sendReportClassRequest");
         if($scope.readyToSendClassStatusUpdate) {
@@ -149,5 +150,23 @@ app.controller("mapController",function ($scope,$http) {
             }
         },500);
     }
+
+    $scope.onRoomClicked = function (box) {
+        if(box.type === "hallway"){
+            return;
+        }
+        console.log($scope.serverStr+"/getRoomStatus/"+box.place_id);
+        $http.get( $scope.serverStr+"/getRoomStatus/"+box.place_id).success(function (data) {
+            console.log(data);
+            $scope.roomToShow = data[0];
+            console.log($scope.roomToShow);
+            console.log($scope.roomToShow.name);
+            if($scope.roomToShow.description === undefined || $scope.roomToShow.description === ""){
+                $scope.roomToShow.description = "No description found"
+            }
+
+            $("#roomInformation").modal();
+        });
+};
     $scope.refreshMapData();
 });

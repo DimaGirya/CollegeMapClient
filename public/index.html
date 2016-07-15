@@ -23,8 +23,8 @@
                 <tr ng-repeat="column in mapData" >
                     <th ng-repeat="box in column">
                         <div ng-class="['box']">
-                            <div ng-class = "['box_inner',box.border, box.status]">
-                        <!--
+                            <div ng-class = "['box_inner',box.border, box.status]" ng-click = "onRoomClicked(box)">
+                             <!--
                                 Id:{{box.place_id}}
                                 <br>
                                 {{box.coord_x}},{{box.coord_y}}
@@ -177,10 +177,33 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-
     </div>
 </div>
 
+
+
+<div class="modal fade" id="roomInformation" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Room information</h4>
+            </div>
+            <div class="modal-body">
+                <div>
+                    Type:{{roomToShow.type}}
+                    <br>
+                    Name: {{roomToShow.name}}
+                    <br>
+                    Status:  {{roomToShow.status}}
+                    <br>
+                    Description:{{roomToShow.description}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 <script src = "js/lib/angular/angular.min.js" ></script>
