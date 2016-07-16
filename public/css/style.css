@@ -104,8 +104,8 @@ td,tr {
 }
 .inPatch{
   border-width: 2px;
-  background-color: #7b2aff;
-  border-color: #7b2aff;
+  background-color: #CAB9F9;
+  border-color: #CAB9F9;
   border-style: solid;
   background-image: url(../images/path.png);
   background-repeat: no-repeat;
@@ -327,6 +327,18 @@ input[type=radio] {
 
 #logo{
   margin: 0 auto;
+}
+
+header section{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	left: 3%;
+    position: relative;
+}
+
+.userContent{
+	margin-bottom: 5%;
 }
 
 #user, #login{

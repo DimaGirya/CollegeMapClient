@@ -7,9 +7,13 @@ function onSuccess(googleUser) {
         request.execute(function (resp) {
             localStorage.setItem("name", resp.displayName);
             localStorage.setItem("id", resp.id);
-            $('#user').html(resp.displayName);
-            var signOut = '<a href="javascript:void(0);" onclick="signOut();">Sign out</a></div>';
-            $('#gplus').html(signOut);
+			$('#gSignIn').slideUp('slow');
+            $('.gSignIn').html('');
+            $('.userContent').html(resp.displayName);
+            var signOut = '<a href="#" onclick="signOut();">&nbsp;&nbsp;Sign out</a>';
+            $('#logOut').html(signOut);
+			$('header section').css("flex-direction", "row");
+			$('.userContent').css("margin-bottom", "0");
         });
     });
 }
@@ -18,7 +22,7 @@ function onFailure(error) {
     console.log(error);
 }
 function renderButton() {
-    gapi.signin2.render('gplus', {
+    gapi.signin2.render('gSignIn', {
         'scope': 'profile email',
         'width': 240,
         'height': 50,
@@ -29,9 +33,14 @@ function renderButton() {
     });
 }
 function signOut() {
+	console.log("in sign out");
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-        $('user').html("Log In");
-        $('#gplus').slideDown('slow');
+		$('#logOut').html('');
+		$('header section').css("flex-direction", "column");
+        $('.userContent').html('Guest');
+        $('#gSignIn').slideDown('slow');
+		localStorage.setItem("name", false);
+        localStorage.setItem("id", false);
     });
 }

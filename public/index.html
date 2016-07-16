@@ -6,6 +6,7 @@
     <title>College map</title>
     <script src = "js/lib/jquery/jquery-2.2.4.min.js"></script>
     <script src = "js/lib/bootstrap-3.3.6-dist/bootstrap.min.js"></script>
+	<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
     <link rel="stylesheet" href="css/bootstrap-3.3.6-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -14,8 +15,9 @@
 <body ng-controller="mapController" >
 <div style ="position: absolute;">
     <header>
-        <div id="gplus" class="g-signin2" data-onsuccess="onSignIn"></div>
-        <div id="user"></div>
+       <section>
+			<div class="userContent">Guest</div><div id="logOut"></div><div id="gSignIn"></div>
+		</section>
         <a id="logo" href="#"><img src="images/logo.png"></a>
     </header>
     <main>
