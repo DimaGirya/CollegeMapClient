@@ -335,4 +335,85 @@ input[type=radio] {
 
 #refresh{
   border: none;
+  background-image: url(../images/refresh.png);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
+
+
+.coffee{
+    background-image: url(../images/coffee.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+	border-width: 2px ;
+    background-color: #2c0f71;
+    border-color: #2c0f71;
+    border-style: solid;
+}
+
+
+.toilet{
+    background-image: url(../images/toilet.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+	border-width: 2px ;
+    background-color: #2c0f71;
+    border-color: #2c0f71;
+    border-style: solid;
+}
+
+
+.stairs{
+    background-image: url(../images/stairs.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+	border-width: 2px ;
+    background-color: #2c0f71;
+    border-color: #2c0f71;
+    border-style: solid;
+}
+
+.sofa{
+    background-image: url(../images/sofa.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+	border-width: 2px ;
+    background-color: #2c0f71;
+    border-color: #2c0f71;
+    border-style: solid;
+}
+
+.elevator{
+    background-image: url(../images/elevator.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+	border-width: 2px ;
+    background-color: #2c0f71;
+    border-color: #2c0f71;
+    border-style: solid;
+}
+
+.printer{
+    background-image: url(../images/elevator.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+	border-width: 2px ;
+    background-color: #2c0f71;
+    border-color: #2c0f71;
+    border-style: solid;
+}
+
+
+/* 
+.other{
+  border-width: 2px ;
+  background-color: #2c0f71;
+  border-color: #2c0f71;
+  border-style: solid;
+}
+
+
+.centerBackground{
+  background-repeat: no-repeat;
+  background-position: center center;
+} */
