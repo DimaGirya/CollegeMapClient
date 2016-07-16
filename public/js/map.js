@@ -3,8 +3,7 @@ app.controller("mapController",function ($scope,$http) {
     //$scope.serverStr = "http://localhost:3000";  // for work which localhost server
     $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
     $scope.updateMapInProgress = false;
-    //$scope.userName = "Dima Girya";
-    $scope.userName ="Guest";
+    $scope.userName = localStorage.getItem("name");
     $scope.message = "";
     $scope.messageToUser = "";
     $scope.messageHeader = "";
@@ -30,14 +29,7 @@ app.controller("mapController",function ($scope,$http) {
         name:"",
         id :-1
     };
-    console.log($scope.userName);
-    console.log(typeof  localStorage.getItem("name"));
-    console.log(localStorage.getItem("name"));
-    if (localStorage.getItem("name")){
-        $scope.userName = localStorage.getItem("name");
-        console.log($scope.userName);
-    }
-
+    
     var updateMapToDisplayInProgress = false;
     var updateMapInProgress  = false;
     var waitCount = 0;
@@ -71,7 +63,6 @@ app.controller("mapController",function ($scope,$http) {
         updateMapToDisplayInProgress = true;
         updateMapInProgress  = true;
         $http.get( $scope.serverStr+"/getMapToDisplay").success(function (data) {
-            console.log(data);
             $scope.mapData = data;
             updateMapToDisplayInProgress = false;
         });
@@ -93,8 +84,8 @@ app.controller("mapController",function ($scope,$http) {
     };
 
     $scope.sendReportClassRequest = function () {
-        console.log("sendReportClassRequest");
-        if($scope.userName === "Guest"){
+        $scope.userName = localStorage.getItem("name");
+        if($scope.userName === "Guest" ||  $scope.userName === null ||  $scope.userName === undefined){
             messageToUser( "You need to log in to do to this action.","Input error");
             return;
         }
@@ -112,7 +103,6 @@ app.controller("mapController",function ($scope,$http) {
         }
         else{
             messageToUser("Your status don't save","Fail");
-            console.log("not ready to send");
         }
 
     };
@@ -129,7 +119,6 @@ app.controller("mapController",function ($scope,$http) {
         var intervalObject = setTimeout(function () {
             if (!updateMapToDisplayInProgress || !updateMapInProgress) {
                 $http.get($scope.serverStr + "/getPath/" + $scope.roomFrom.id + "/" + $scope.roomTo.id).success(function (data) {
-                    console.log(data);
                     var count = 0;
                     angular.forEach(data.path, function (hallway) {
                         angular.forEach($scope.mapData, function (row) {
@@ -143,7 +132,6 @@ app.controller("mapController",function ($scope,$http) {
                     });
                     $scope.inputFrom = "";
                     $scope.inputTo = "";
-                    console.log(count);
                     $scope.roomTo = {
                         status: "",
                         name: "",
@@ -173,12 +161,8 @@ app.controller("mapController",function ($scope,$http) {
         if(box.type === "hallway"){
             return;
         }
-        console.log($scope.serverStr+"/getRoomStatus/"+box.place_id);
         $http.get( $scope.serverStr+"/getRoomStatus/"+box.place_id).success(function (data) {
-            console.log(data);
             $scope.roomToShow = data[0];
-            console.log($scope.roomToShow);
-            console.log($scope.roomToShow.name);
             if($scope.roomToShow.description === undefined || $scope.roomToShow.description === ""){
                 $scope.roomToShow.description = "No description found"
             }
@@ -187,7 +171,8 @@ app.controller("mapController",function ($scope,$http) {
     };
 
     $scope.sendCommentsToServer = function () {
-        if($scope.userName === "Guest"){
+        $scope.userName = localStorage.getItem("name");
+        if($scope.userName === "Guest" ||  $scope.userName === null ||  $scope.userName === undefined){
             messageToUser("You need to log in to do to this action.","Input error");
             return;
         }
