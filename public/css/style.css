@@ -107,6 +107,10 @@ td,tr {
   background-color: #7b2aff;
   border-color: #7b2aff;
   border-style: solid;
+  background-image: url(../images/path.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50%;
 }
 .border{
   border-style: solid;
@@ -410,6 +414,16 @@ input[type=radio] {
   background-color: #2c0f71;
   border-color: #2c0f71;
   border-style: solid;
+}
+
+.inPatch{
+  border-width: 2px;
+  background-color: #7b2aff;
+  border-color: #7b2aff;
+  border-style: solid;
+  background-image: url(../images/elevator.png);
+  background-repeat: no-repeat; //.centerBackground
+  background-position: center center;  //.centerBackground
 }
 
 
