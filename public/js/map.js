@@ -3,7 +3,11 @@ app.controller("mapController",function ($scope,$http) {
     //$scope.serverStr = "http://localhost:3000";  // for work which localhost server
     $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
     $scope.updateMapInProgress = false;
-    $scope.userName = "Guest";
+    //$scope.userName = "Dima Girya";
+    $scope.userName ="Guest";
+    $scope.message = "";
+    $scope.messageToUser = "";
+    $scope.messageHeader = "";
     $scope.commentsInput = "";
     $scope.mapData = null;
     $scope.classes = null;
@@ -11,13 +15,11 @@ app.controller("mapController",function ($scope,$http) {
     $scope.readyToSendClassStatusUpdate = false;
     $scope.inputFrom = "";
     $scope.inputTo = "";
-    $scope.message = "";
     $scope.classToReport = {
         status:"",
         name:"",
         id :-1
     };
-
     $scope.roomTo = {
         status:"",
         name:"",
@@ -28,16 +30,18 @@ app.controller("mapController",function ($scope,$http) {
         name:"",
         id :-1
     };
-
+    console.log($scope.userName);
+    console.log(typeof  localStorage.getItem("name"));
+    console.log(localStorage.getItem("name"));
     if (localStorage.getItem("name")){
         $scope.userName = localStorage.getItem("name");
+        console.log($scope.userName);
     }
 
     var updateMapToDisplayInProgress = false;
     var updateMapInProgress  = false;
     var waitCount = 0;
-
-
+    
     $scope.bindIdToRoomName = function (roomObject) {
         var size = $scope.rooms.length;
         for(var i = 0; i <  size; i++){
@@ -90,16 +94,24 @@ app.controller("mapController",function ($scope,$http) {
 
     $scope.sendReportClassRequest = function () {
         console.log("sendReportClassRequest");
+        if($scope.userName === "Guest"){
+            messageToUser( "You need to log in to do to this action.","Input error");
+            return;
+        }
         if($scope.readyToSendClassStatusUpdate) {
             $http.get($scope.serverStr + "/setStatusRoom/" + $scope.classToReport.id + "/" + $scope.classToReport.status).success(function (data) {
-                ///room status update done
-                console.log("sendReportClassRequest done");
-                console.log(data);
+                $scope.classToReport = {
+                    status:"",
+                    name:"",
+                    id :-1
+                };
                 $scope.message = data[0].message;
-                console.log($scope.message);
+                messageToUser("Your status has successfully save.","Done");
                 $scope.refreshMapData();
             });
-        }else{
+        }
+        else{
+            messageToUser("Your status don't save","Fail");
             console.log("not ready to send");
         }
 
@@ -107,8 +119,6 @@ app.controller("mapController",function ($scope,$http) {
 
     $scope.sendFindPatchRequest = function(){
         if($scope.roomTo.id === -1 ||  $scope.roomFrom.id === -1){
-            console.log($scope.roomTo);
-            console.log($scope.roomFrom);
             return;
         }
         $scope.refreshMapData();
@@ -131,6 +141,8 @@ app.controller("mapController",function ($scope,$http) {
                             });
                         });
                     });
+                    $scope.inputFrom = "";
+                    $scope.inputTo = "";
                     console.log(count);
                     $scope.roomTo = {
                         status: "",
@@ -151,7 +163,7 @@ app.controller("mapController",function ($scope,$http) {
                     findPatchRequest();
                 }
                 else{
-                    //todo notify user any connection error
+                    messageToUser("Connection error.Try again later", "Connection error");
                 }
             }
         },500);
@@ -170,16 +182,32 @@ app.controller("mapController",function ($scope,$http) {
             if($scope.roomToShow.description === undefined || $scope.roomToShow.description === ""){
                 $scope.roomToShow.description = "No description found"
             }
-
             $("#roomInformation").modal();
         });
-};
-    $scope.sendCommentsToServer = function () {
-        if($scope.commentsInput !== undefined || $scope.commentsInput !== ""){
-            $http.get($scope.serverStr + "/addComments/" + $scope.roomToShow.id + "/" + $scope.userName + "/"+$scope.commentsInput).success(function (data) {
+    };
 
+    $scope.sendCommentsToServer = function () {
+        if($scope.userName === "Guest"){
+            messageToUser("You need to log in to do to this action.","Input error");
+            return;
+        }
+        if($scope.commentsInput !== undefined && $scope.commentsInput !== ""){
+            $http.get($scope.serverStr + "/addComments/" + $scope.roomToShow.id + "/" + $scope.userName + "/"+$scope.commentsInput).success(function (data) {
+                messageToUser("Your comment has successfully added.","Done");
+                $scope.commentsInput= "";
             });
         }
+        else {
+            messageToUser("You can't add empty comment.","Input error");
+        }
     };
+
+    function messageToUser(message,headerMessage) {
+        $scope.messageToUser = message;
+        $scope.messageHeader  = headerMessage;
+        $("#messageToUser").modal();
+    }
+    
     $scope.refreshMapData();
 });
+

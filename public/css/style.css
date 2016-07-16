@@ -304,6 +304,22 @@ input[type=radio] {
   width:100px;
   vertical-align: middle;
 }
+.commentsWrapper{
+  max-height: 500px;
+  overflow: scroll;
+}
+.commentsDiv{
+  margin-top:100px;
+  border-top-style: dotted;
+}
+.commentText{
+  padding-top: 50px;
+  font-size: 50px;
+}
+.commentStr{
+  font-size: 70px;
+  padding-bottom: 50px;
+}
 
 #logo{
   margin: 0 auto;
