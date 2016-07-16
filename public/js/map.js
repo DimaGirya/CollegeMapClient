@@ -1,9 +1,9 @@
 var app = angular.module("map",[]);
 app.controller("mapController",function ($scope,$http) {
-    $scope.serverStr = "http://localhost:3000";  // for work which localhost server
-    //  $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
+    //$scope.serverStr = "http://localhost:3000";  // for work which localhost server
+    $scope.serverStr =  "https://mapcollege.herokuapp.com";  // for work which heroku server
     $scope.updateMapInProgress = false;
-    $scope.userName = "Dima Girya"; // hardcodet
+    $scope.userName = "Guest";
     $scope.commentsInput = "";
     $scope.mapData = null;
     $scope.classes = null;
@@ -28,6 +28,10 @@ app.controller("mapController",function ($scope,$http) {
         name:"",
         id :-1
     };
+
+    if (localStorage.getItem("name")){
+        $scope.userName = localStorage.getItem("name");
+    }
 
     var updateMapToDisplayInProgress = false;
     var updateMapInProgress  = false;

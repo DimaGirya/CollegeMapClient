@@ -10,11 +10,14 @@
     <!-- Optional theme  -->
     <link rel="stylesheet" href="css/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <meta name="google-signin-client_id" content="1080599170314-55bul0d649dquhnpo5gjfnvic0b5as4h.apps.googleusercontent.com">
 </head>
 <body ng-controller="mapController" >
 <div style ="position: absolute;">
     <header>
-        <a id="login" href="#">Log In</a><a id="logo" href="#"><img src="images/logo.png"></a>
+        <div id="gplus" class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div id="user"></div>
+        <a id="logo" href="#"><img src="images/logo.png"></a>
     </header>
     <main>
             <table>
@@ -206,7 +209,9 @@
         </div>
     </div>
 </div>
-<script src = "js/lib/angular/angular.min.js" ></script>
-<script src = "js/map.js"></script>
+<script src="js/lib/angular/angular.min.js" ></script>
+<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+<script src="js/map.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>

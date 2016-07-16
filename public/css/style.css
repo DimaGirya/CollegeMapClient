@@ -309,7 +309,7 @@ input[type=radio] {
   margin: 0 auto;
 }
 
-#login{
+#user, #login{
   float: left;
   font-size: 50px;
   left: 5%;
