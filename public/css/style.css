@@ -12,6 +12,10 @@ body{
   overflow: auto;
 }
 
+body > div {
+    position: absolute;
+}
+
 
 table {
   border: 0.5px solid black;

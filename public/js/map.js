@@ -86,7 +86,7 @@ app.controller("mapController",function ($scope,$http) {
     $scope.sendReportClassRequest = function () {
         $scope.userName = localStorage.getItem("name");
         if($scope.userName === "Guest" ||  $scope.userName === null ||  $scope.userName === undefined){
-            messageToUser( "You need to log in to do to this action.","Input error");
+            messageToUser( "Please Log in to report","Input error");
             return;
         }
         if($scope.readyToSendClassStatusUpdate) {
@@ -97,12 +97,12 @@ app.controller("mapController",function ($scope,$http) {
                     id :-1
                 };
                 $scope.message = data[0].message;
-                messageToUser("Your status has successfully save.","Done");
+                messageToUser("Report saved, Thanks!","Done");
                 $scope.refreshMapData();
             });
         }
         else{
-            messageToUser("Your status don't save","Fail");
+            messageToUser("Report failed","Fail");
         }
 
     };
@@ -178,12 +178,12 @@ app.controller("mapController",function ($scope,$http) {
         }
         if($scope.commentsInput !== undefined && $scope.commentsInput !== ""){
             $http.get($scope.serverStr + "/addComments/" + $scope.roomToShow.id + "/" + $scope.userName + "/"+$scope.commentsInput).success(function (data) {
-                messageToUser("Your comment has successfully added.","Done");
+                messageToUser("Thanks for commenting!","Done");
                 $scope.commentsInput= "";
             });
         }
         else {
-            messageToUser("You can't add empty comment.","Input error");
+            messageToUser("Error: empty comment","Input error");
         }
     };
 
