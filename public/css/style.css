@@ -281,6 +281,7 @@ footer {
 .form-control{
   height: 200px;
   width: 97%;
+  margin-bottom: 30px;
 }
 .modal-content{
   margin-top:300px ;
@@ -300,6 +301,11 @@ footer {
 :-moz-placeholder { /* Firefox 18- */
   font-size:45px;
 }
+
+label{
+	margin-bottom: 45px;
+}
+
 input[type="text"] {
    font-size:65px;
  }
@@ -351,7 +357,6 @@ header section{
 
 #refresh{
   border: none;
-  background-image: url(../images/refresh.png);
   background-repeat: no-repeat;
   background-position: center center;
 }
